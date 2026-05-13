@@ -9,7 +9,7 @@ var roleUpgrader = {
 	    }
 	    if(!creep.memory.upgrading && creep.store.getFreeCapacity() == 0) {
 	        creep.memory.upgrading = true;
-	        creep.say('🚧 build');
+	        creep.say('🚧 Upgrade');
 	    }
 
 	    if(creep.memory.upgrading == false) {
@@ -23,7 +23,7 @@ var roleUpgrader = {
             if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
                 creep.moveTo(creep.room.controller);
             }
-			creep.say('Control');
+			creep.say('🚧 Upgrade');
         }
 	}
 };

@@ -23,11 +23,11 @@ module.exports.loop = function () {
     
     var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
 
-    if(upgraders.length < 3) {
+    if(upgraders.length < 3 && harvesters.length > 1) {
         var newName = 'Upgrader' + Game.time;
         console.log('Spawning new upgrader: ' + newName);
         Game.spawns[basename].spawnCreep([WORK,CARRY,MOVE], newName, 
-            {memory: {role: 'upgrader'}});
+            {memory: {role: 'upgrader',upgrading: 'true'}});
     }
 
     var tower = Game.getObjectById('f49783a12852af396ab6d992');
