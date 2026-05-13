@@ -1,6 +1,7 @@
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
+var roleSpawn = require('role.spawn');
 var basename = 'Spawn1'
 
 module.exports.loop = function () {
@@ -11,24 +12,8 @@ module.exports.loop = function () {
             console.log('Clearing non-existing creep memory:', name);
         }
     }
-    
-    var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
 
-    if(harvesters.length < 2) {
-        var newName = 'Harvester' + Game.time;
-        console.log('Spawning new harvester: ' + newName);
-        Game.spawns[basename].spawnCreep([WORK,CARRY,MOVE], newName, 
-            {memory: {role: 'harvester'}});
-    }
-    
-    var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-
-    if(upgraders.length < 3 && harvesters.length > 1) {
-        var newName = 'Upgrader' + Game.time;
-        console.log('Spawning new upgrader: ' + newName);
-        Game.spawns[basename].spawnCreep([WORK,CARRY,MOVE], newName, 
-            {memory: {role: 'upgrader',upgrading: 'true'}});
-    }
+    roleSpawn.run(basename);
 
     var tower = Game.getObjectById('f49783a12852af396ab6d992');
     if(tower) {
