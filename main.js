@@ -7,7 +7,7 @@ var basename = 'Spawn1'
 
 module.exports.loop = function () {
 	
-	    for(var name in Memory.creeps) {
+	for(var name in Memory.creeps) {
         if(!Game.creeps[name]) {
             delete Memory.creeps[name];
             console.log('Clearing non-existing creep memory:', name);
@@ -16,6 +16,12 @@ module.exports.loop = function () {
 
     roleSpawn.run(basename);
 
+    var towers = Game.spawns[basename].room.find(FIND_MY_STRUCTURES, {filter: {structureType: STRUCTURE_TOWER}})
+
+    for(var name in towers) {
+
+
+    }
 
 
     for(var name in Game.creeps) {
