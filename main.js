@@ -3,7 +3,7 @@ var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var roleSpawn = require('role.spawn');
 var roleTower = require('role.tower');
-var basename = 'Spawn1'
+var basename = 'Cadia'
 
 module.exports.loop = function () {
 	

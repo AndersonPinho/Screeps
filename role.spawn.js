@@ -25,7 +25,7 @@ var roleSpawn = {
         var newName = 'Builder' + Game.time;
         console.log('Spawning new builder: ' + newName);
         Game.spawns[basename].spawnCreep([WORK,CARRY,MOVE], newName, 
-            {memory: {role: 'builder'}});
+            {memory: {role: 'builder',building: 'true'}});
     }
         
     }
